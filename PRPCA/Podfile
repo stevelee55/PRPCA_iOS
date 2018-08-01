@@ -1,0 +1,30 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '9.0'
+
+target 'PRPCA' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Given pod thingy from aws.
+  pod 'AWSMobileClient', '~> 2.6.13'
+  pod 'AWSAuthCore', '~> 2.6.13'
+  pod 'AWSAPIGateway', '~> 2.6.13'
+  pod 'AWSS3', '~> 2.6.13'   # For file transfers
+  pod 'AWSCognito', '~> 2.6.13'   #For data sync
+
+  # Pod for gif support.
+  pod 'SwiftGifOrigin', '~> 1.6.1'
+
+  # Pods for PRPCA
+
+  target 'PRPCATests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'PRPCAUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end

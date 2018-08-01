@@ -1,0 +1,44 @@
+PODS:
+  - AWSAPIGateway (2.6.25):
+    - AWSCore (= 2.6.25)
+  - AWSAuthCore (2.6.25):
+    - AWSCore (= 2.6.25)
+  - AWSCognito (2.6.25):
+    - AWSCore (= 2.6.25)
+  - AWSCore (2.6.25)
+  - AWSMobileClient (2.6.25):
+    - AWSAuthCore (= 2.6.25)
+  - AWSS3 (2.6.25):
+    - AWSCore (= 2.6.25)
+  - SwiftGifOrigin (1.6.1)
+
+DEPENDENCIES:
+  - AWSAPIGateway (~> 2.6.13)
+  - AWSAuthCore (~> 2.6.13)
+  - AWSCognito (~> 2.6.13)
+  - AWSMobileClient (~> 2.6.13)
+  - AWSS3 (~> 2.6.13)
+  - SwiftGifOrigin (~> 1.6.1)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AWSAPIGateway
+    - AWSAuthCore
+    - AWSCognito
+    - AWSCore
+    - AWSMobileClient
+    - AWSS3
+    - SwiftGifOrigin
+
+SPEC CHECKSUMS:
+  AWSAPIGateway: fa7923f8e0a7c66696ab06e91fbc973f3dc3e11e
+  AWSAuthCore: ee797576ca94ef45b48cbf40bb113944791a09ab
+  AWSCognito: c86cc3a4b1c6e2250dee489c17010662d3e4b3b5
+  AWSCore: 93ac57c361f6ff9c0749adf9404c4a1a1ecdaa2b
+  AWSMobileClient: 89f45bf39e73dedc2c9ce673146167e2009e8200
+  AWSS3: 0614ff4e0f0d11942322b5a15c30927a93fe35db
+  SwiftGifOrigin: d6679d3ebe9df2e049a84bc52582635107b581f6
+
+PODFILE CHECKSUM: d7f1993deff215ed784690e9632aa6d0766733db
+
+COCOAPODS: 1.5.3
