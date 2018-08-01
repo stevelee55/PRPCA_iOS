@@ -10,10 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var testImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        testImageView.loadGif(name: "test")
         
         // Do any additional setup after loading the view, typically from a nib.
     }

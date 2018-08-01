@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class VideoClipsModel: NSObject {
+class VideoClipsModelController: NSObject {
     
     // Video Clip Metadata Struct.
     public struct VideoClipMetaData {
@@ -28,10 +28,7 @@ class VideoClipsModel: NSObject {
     // Video Clip Struct.
     public struct VideoClip {
         // Constructor.
-        init(title:String,
-             dateCreated:NSDate,
-             duration:Double,
-             videoClipURL:URL,
+        init(title:String, dateCreated:NSDate, duration:Double, videoClipURL:URL,
              thumbnailURL:URL) {
             self.videoClipURL = videoClipURL
             self.thumbnailURL = thumbnailURL
@@ -51,24 +48,26 @@ class VideoClipsModel: NSObject {
     // Constructor.
     override init() {
         videoClips = [VideoClip]()
+        super.init()
+        loadSavedVideoClips()
     }
     
     // Methods.
     
     // Returns true if there is any saved data that can be retrieved.
     // By default returns false.
-    public func loadSavedVideoClips() -> Bool {
+    private func loadSavedVideoClips() {
         // Checking to see if any data is present in the system.
-        if let data = UserDefaults().object(forKey: "VSP_Data_VideosMetaData") as? Data {
+        if let data = UserDefaults().object(forKey: "SavedVideoClips") as? Data {
             // Unarchieving it.
             let retrievedVideoClipsData = NSKeyedUnarchiver.unarchiveObject(with: data) as! [VideoClip]
             videoClips = retrievedVideoClipsData
-            return true
+        } else {
+            print("Error: VideoClips data cannot be retrieved. Could be because data doesn't exist.")
         }
-        return false
     }
     
-    public func saveCurrentVideoClipsData() {
+    private func saveCurrentVideoClipsData() {
         // Store the current data that is present in the object and save them to
         // the app directory.
         
@@ -82,25 +81,42 @@ class VideoClipsModel: NSObject {
     
     public func deleteVideoClipAt(index:Int) {
         videoClips.remove(at: index)
-        // Permanantly saving the data.
+        // Permanantly saving and updating the data.
         saveCurrentVideoClipsData()
+        loadSavedVideoClips()
     }
     
-    public func addNewVideoClip(title:String,
-                                dateCreated:NSDate,
-                                duration:Double,
-                                videoURL:URL,
-                                thumbnail:UIImage) {
+    public func addNewVideoClip(title:String, dateCreated:NSDate, duration:Double,
+                                videoURL:URL, thumbnail:UIImage) {
         // Save thumbnail in the directory and get the url.
-        let thumbnailURL:URL = URL(fileURLWithPath: "blah")
-        let clip = VideoClip(title: title,
-                         dateCreated: dateCreated,
-                         duration: duration,
-                         videoClipURL: videoURL,
-                         thumbnailURL: thumbnailURL)
+        let thumbnailURL:URL = writeUIImage(uiimage: thumbnail, title: title, type: "thumbnail")
+        let clip = VideoClip(title: title, dateCreated: dateCreated,
+                         duration: duration, videoClipURL: videoURL, thumbnailURL: thumbnailURL)
         videoClips.append(clip)
-        // Permanantly saving the data.
+        // Permanantly saving and updating the data.
         saveCurrentVideoClipsData()
+        loadSavedVideoClips()
     }
     
+}
+
+// Helper Functions.
+
+private func getDocumentsDirectory() -> URL {
+    let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+    return paths[0]
+}
+
+// Returns False when failed to save the uiimage or convert the uiimage to data.
+private func writeUIImage(uiimage:UIImage, title:String, type:String) -> URL {
+    let path = getDocumentsDirectory().appendingPathComponent("\(title)_\(type)")
+    do {
+        // uiimage can either be .gif or .jpg .
+        let data = NSKeyedArchiver.archivedData(withRootObject: uiimage)
+        try data.write(to: path)
+        return path
+    } catch {
+        print("Error: Data cannot be saved.")
+    }
+    return URL(fileURLWithPath: "n/a")
 }

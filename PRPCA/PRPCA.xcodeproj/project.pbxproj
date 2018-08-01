@@ -22,7 +22,6 @@
 		9DCC7B8F21116E01000E8C4C /* VideoClipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCC7B8E21116E01000E8C4C /* VideoClipsViewController.swift */; };
 		9DCC7B9221116E21000E8C4C /* PRPCAResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCC7B9121116E21000E8C4C /* PRPCAResultsViewController.swift */; };
 		9DCC7B95211203B0000E8C4C /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCC7B94211203B0000E8C4C /* UIImage+Gif.swift */; };
-		9DCC7B9721120469000E8C4C /* test.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9DCC7B9621120469000E8C4C /* test.gif */; };
 		BC5A965FBD2BA70D845C05E8 /* Pods_PRPCA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2072E9732CF61E4B2AB03140 /* Pods_PRPCA.framework */; };
 		D1E5A2B069FCB632EF47DBE1 /* Pods_PRPCAUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E586ABD3E7810F0ABF626A5F /* Pods_PRPCAUITests.framework */; };
 /* End PBXBuildFile section */
@@ -68,7 +67,6 @@
 		9DCC7B8E21116E01000E8C4C /* VideoClipsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoClipsViewController.swift; sourceTree = "<group>"; };
 		9DCC7B9121116E21000E8C4C /* PRPCAResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRPCAResultsViewController.swift; sourceTree = "<group>"; };
 		9DCC7B94211203B0000E8C4C /* UIImage+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
-		9DCC7B9621120469000E8C4C /* test.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = test.gif; path = "../../../../../../../../Downloads/SwiftGif-master 2/SwiftGifDemo/test.gif"; sourceTree = "<group>"; };
 		A6B76A30A37EF3C05FEF04C8 /* Pods-PRPCAUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PRPCAUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PRPCAUITests/Pods-PRPCAUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B85EC25260396B8F6F983E3E /* Pods-PRPCA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PRPCA.release.xcconfig"; path = "Pods/Target Support Files/Pods-PRPCA/Pods-PRPCA.release.xcconfig"; sourceTree = "<group>"; };
 		BA1707444127042EB2054AD3 /* Pods_PRPCATests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PRPCATests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,7 +139,6 @@
 				9DCC7B6621116961000E8C4C /* Info.plist */,
 				9DCC7B8821116A5A000E8C4C /* awsconfiguration.json */,
 				9DCC7B5E2111695F000E8C4C /* PRPCA.xcdatamodeld */,
-				9DCC7B9621120469000E8C4C /* test.gif */,
 			);
 			path = PRPCA;
 			sourceTree = "<group>";
@@ -314,7 +311,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9DCC7B8921116A5A000E8C4C /* awsconfiguration.json in Resources */,
-				9DCC7B9721120469000E8C4C /* test.gif in Resources */,
 				9DCC7B6521116961000E8C4C /* LaunchScreen.storyboard in Resources */,
 				9DCC7B6221116961000E8C4C /* Assets.xcassets in Resources */,
 				9DCC7B5D2111695F000E8C4C /* Main.storyboard in Resources */,
