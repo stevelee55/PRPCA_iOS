@@ -8,9 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		2D2B00C340A3F83AAE379FB0 /* Pods_PRPCATests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1707444127042EB2054AD3 /* Pods_PRPCATests.framework */; };
+		9D9E5E8D2113816B0029D8C0 /* ResultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E5E8C2113816B0029D8C0 /* ResultsCell.swift */; };
+		9D9E5E92211383610029D8C0 /* PRPCAResultsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E5E91211383610029D8C0 /* PRPCAResultsDetailsViewController.swift */; };
+		9D9E5E94211383F10029D8C0 /* PRPCAResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E5E93211383F10029D8C0 /* PRPCAResult.swift */; };
+		9D9E5E96211385DD0029D8C0 /* PRPCAResultsMetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E5E95211385DD0029D8C0 /* PRPCAResultsMetaData.swift */; };
+		9D9E5E982113876C0029D8C0 /* VideoClip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E5E972113876C0029D8C0 /* VideoClip.swift */; };
+		9D9E5E9A211395670029D8C0 /* OG.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9D9E5E99211395660029D8C0 /* OG.gif */; };
 		9DA57042211349AA005E0B85 /* MobileBackendAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA57041211349A9005E0B85 /* MobileBackendAPI.swift */; };
+		9DA5704A2113800A005E0B85 /* VideoClipDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA570492113800A005E0B85 /* VideoClipDetails.swift */; };
 		9DB201CA21133356009DC297 /* AWSUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB201C921133355009DC297 /* AWSUploadViewController.swift */; };
-		9DB201CC21133FCF009DC297 /* VideoClipDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB201CB21133FCF009DC297 /* VideoClipDetails.swift */; };
 		9DCC7B582111695F000E8C4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCC7B572111695F000E8C4C /* AppDelegate.swift */; };
 		9DCC7B5D2111695F000E8C4C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DCC7B5B2111695F000E8C4C /* Main.storyboard */; };
 		9DCC7B602111695F000E8C4C /* PRPCA.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9DCC7B5E2111695F000E8C4C /* PRPCA.xcdatamodeld */; };
@@ -25,7 +31,6 @@
 		9DCC7B9221116E21000E8C4C /* PRPCAResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCC7B9121116E21000E8C4C /* PRPCAResultsViewController.swift */; };
 		9DCC7B95211203B0000E8C4C /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCC7B94211203B0000E8C4C /* UIImage+Gif.swift */; };
 		9DCC7B9921125BFD000E8C4C /* VideoClipCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCC7B9821125BFD000E8C4C /* VideoClipCell.swift */; };
-		9DCC7B9B21126E80000E8C4C /* VideoClip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCC7B9A21126E80000E8C4C /* VideoClip.swift */; };
 		9DCC7B9D21126FC3000E8C4C /* VideoClipMetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCC7B9C21126FC3000E8C4C /* VideoClipMetaData.swift */; };
 		BC5A965FBD2BA70D845C05E8 /* Pods_PRPCA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2072E9732CF61E4B2AB03140 /* Pods_PRPCA.framework */; };
 		D1E5A2B069FCB632EF47DBE1 /* Pods_PRPCAUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E586ABD3E7810F0ABF626A5F /* Pods_PRPCAUITests.framework */; };
@@ -52,9 +57,15 @@
 		2072E9732CF61E4B2AB03140 /* Pods_PRPCA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PRPCA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E2C30FC2C496A450B140639 /* Pods-PRPCAUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PRPCAUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PRPCAUITests/Pods-PRPCAUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		788DA889A387F49721C8BF73 /* Pods-PRPCATests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PRPCATests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PRPCATests/Pods-PRPCATests.debug.xcconfig"; sourceTree = "<group>"; };
+		9D9E5E8C2113816B0029D8C0 /* ResultsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ResultsCell.swift; path = "/Users/stevelee/Desktop/Projects/Dev/Research/Video Stitching_Raj_Umich/PRPCA_iOS/PRPCA_iOS/PRPCA/PRPCA/PRPCA Results/ResultsCell.swift"; sourceTree = "<absolute>"; };
+		9D9E5E91211383610029D8C0 /* PRPCAResultsDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PRPCAResultsDetailsViewController.swift; sourceTree = "<group>"; };
+		9D9E5E93211383F10029D8C0 /* PRPCAResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRPCAResult.swift; sourceTree = "<group>"; };
+		9D9E5E95211385DD0029D8C0 /* PRPCAResultsMetaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRPCAResultsMetaData.swift; sourceTree = "<group>"; };
+		9D9E5E972113876C0029D8C0 /* VideoClip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoClip.swift; sourceTree = "<group>"; };
+		9D9E5E99211395660029D8C0 /* OG.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = OG.gif; sourceTree = "<group>"; };
 		9DA57041211349A9005E0B85 /* MobileBackendAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MobileBackendAPI.swift; path = PRPCA/MobileBackendAPI.swift; sourceTree = SOURCE_ROOT; };
+		9DA570492113800A005E0B85 /* VideoClipDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoClipDetails.swift; sourceTree = "<group>"; };
 		9DB201C921133355009DC297 /* AWSUploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWSUploadViewController.swift; sourceTree = "<group>"; };
-		9DB201CB21133FCF009DC297 /* VideoClipDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VideoClipDetails.swift; path = "/Users/stevelee/Desktop/Projects/Dev/Research/Video Stitching_Raj_Umich/PRPCA_iOS/PRPCA_iOS/PRPCA/PRPCA/VideoClipDetails.swift"; sourceTree = "<absolute>"; };
 		9DCC7B542111695F000E8C4C /* PRPCA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PRPCA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DCC7B572111695F000E8C4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DCC7B5C2111695F000E8C4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -75,7 +86,6 @@
 		9DCC7B9121116E21000E8C4C /* PRPCAResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRPCAResultsViewController.swift; sourceTree = "<group>"; };
 		9DCC7B94211203B0000E8C4C /* UIImage+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
 		9DCC7B9821125BFD000E8C4C /* VideoClipCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoClipCell.swift; sourceTree = "<group>"; };
-		9DCC7B9A21126E80000E8C4C /* VideoClip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoClip.swift; sourceTree = "<group>"; };
 		9DCC7B9C21126FC3000E8C4C /* VideoClipMetaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoClipMetaData.swift; sourceTree = "<group>"; };
 		A6B76A30A37EF3C05FEF04C8 /* Pods-PRPCAUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PRPCAUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PRPCAUITests/Pods-PRPCAUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B85EC25260396B8F6F983E3E /* Pods-PRPCA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PRPCA.release.xcconfig"; path = "Pods/Target Support Files/Pods-PRPCA/Pods-PRPCA.release.xcconfig"; sourceTree = "<group>"; };
@@ -113,10 +123,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9D9E5E902113832E0029D8C0 /* PRPCA Results Details */ = {
+			isa = PBXGroup;
+			children = (
+				9D9E5E91211383610029D8C0 /* PRPCAResultsDetailsViewController.swift */,
+			);
+			path = "PRPCA Results Details";
+			sourceTree = "<group>";
+		};
 		9DB201CD21133FD2009DC297 /* Video Clip Details */ = {
 			isa = PBXGroup;
 			children = (
-				9DB201CB21133FCF009DC297 /* VideoClipDetails.swift */,
+				9DA570492113800A005E0B85 /* VideoClipDetails.swift */,
 			);
 			path = "Video Clip Details";
 			sourceTree = "<group>";
@@ -146,6 +164,7 @@
 		9DCC7B562111695F000E8C4C /* PRPCA */ = {
 			isa = PBXGroup;
 			children = (
+				9D9E5E902113832E0029D8C0 /* PRPCA Results Details */,
 				9DCC7B94211203B0000E8C4C /* UIImage+Gif.swift */,
 				9DCC7B572111695F000E8C4C /* AppDelegate.swift */,
 				9DD8430B211332DA0052080D /* AWS Upload */,
@@ -158,6 +177,7 @@
 				9DCC7B6621116961000E8C4C /* Info.plist */,
 				9DCC7B8821116A5A000E8C4C /* awsconfiguration.json */,
 				9DCC7B5E2111695F000E8C4C /* PRPCA.xcdatamodeld */,
+				9D9E5E99211395660029D8C0 /* OG.gif */,
 			);
 			path = PRPCA;
 			sourceTree = "<group>";
@@ -183,11 +203,11 @@
 		9DCC7B9021116E08000E8C4C /* Video Clips */ = {
 			isa = PBXGroup;
 			children = (
+				9D9E5E972113876C0029D8C0 /* VideoClip.swift */,
 				9DCC7B8E21116E01000E8C4C /* VideoClipsViewController.swift */,
 				9DCC7B9821125BFD000E8C4C /* VideoClipCell.swift */,
 				9DCC7B8A21116DCF000E8C4C /* VideoClipsModelController.swift */,
 				9DCC7B9C21126FC3000E8C4C /* VideoClipMetaData.swift */,
-				9DCC7B9A21126E80000E8C4C /* VideoClip.swift */,
 			);
 			path = "Video Clips";
 			sourceTree = "<group>";
@@ -195,8 +215,11 @@
 		9DCC7B9321116E49000E8C4C /* PRPCA Results */ = {
 			isa = PBXGroup;
 			children = (
+				9D9E5E8C2113816B0029D8C0 /* ResultsCell.swift */,
 				9DCC7B9121116E21000E8C4C /* PRPCAResultsViewController.swift */,
 				9DCC7B8C21116DF2000E8C4C /* PRPCAResultsModelController.swift */,
+				9D9E5E95211385DD0029D8C0 /* PRPCAResultsMetaData.swift */,
+				9D9E5E93211383F10029D8C0 /* PRPCAResult.swift */,
 			);
 			path = "PRPCA Results";
 			sourceTree = "<group>";
@@ -341,6 +364,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D9E5E9A211395670029D8C0 /* OG.gif in Resources */,
 				9DCC7B8921116A5A000E8C4C /* awsconfiguration.json in Resources */,
 				9DCC7B6521116961000E8C4C /* LaunchScreen.storyboard in Resources */,
 				9DCC7B6221116961000E8C4C /* Assets.xcassets in Resources */,
@@ -458,16 +482,20 @@
 			files = (
 				9DCC7B9D21126FC3000E8C4C /* VideoClipMetaData.swift in Sources */,
 				9DCC7B602111695F000E8C4C /* PRPCA.xcdatamodeld in Sources */,
-				9DCC7B9B21126E80000E8C4C /* VideoClip.swift in Sources */,
 				9DCC7B9221116E21000E8C4C /* PRPCAResultsViewController.swift in Sources */,
 				9DCC7B8D21116DF2000E8C4C /* PRPCAResultsModelController.swift in Sources */,
 				9DCC7B8F21116E01000E8C4C /* VideoClipsViewController.swift in Sources */,
 				9DCC7B8B21116DCF000E8C4C /* VideoClipsModelController.swift in Sources */,
+				9D9E5E982113876C0029D8C0 /* VideoClip.swift in Sources */,
+				9D9E5E94211383F10029D8C0 /* PRPCAResult.swift in Sources */,
 				9DCC7B9921125BFD000E8C4C /* VideoClipCell.swift in Sources */,
 				9DA57042211349AA005E0B85 /* MobileBackendAPI.swift in Sources */,
+				9D9E5E92211383610029D8C0 /* PRPCAResultsDetailsViewController.swift in Sources */,
 				9DCC7B95211203B0000E8C4C /* UIImage+Gif.swift in Sources */,
 				9DCC7B582111695F000E8C4C /* AppDelegate.swift in Sources */,
-				9DB201CC21133FCF009DC297 /* VideoClipDetails.swift in Sources */,
+				9DA5704A2113800A005E0B85 /* VideoClipDetails.swift in Sources */,
+				9D9E5E8D2113816B0029D8C0 /* ResultsCell.swift in Sources */,
+				9D9E5E96211385DD0029D8C0 /* PRPCAResultsMetaData.swift in Sources */,
 				9DB201CA21133356009DC297 /* AWSUploadViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

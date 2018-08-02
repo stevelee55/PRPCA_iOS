@@ -92,7 +92,7 @@ class MobileBackendAPI {
     }
         
         //Downloading data from s3 bucket.
-        func downloadData(progressBar: UIProgressView, vc: PRPCAResultsViewController, key: String) {
+    func downloadData(progressBar: UIProgressView, vc: PRPCAResultsViewController, mc: PRPCAResultsModelController, key: String) {
             let expression = AWSS3TransferUtilityDownloadExpression()
             expression.progressBlock = {(task, progress) in DispatchQueue.main.async(execute: {
                 // Do something e.g. Update a progress bar.
@@ -120,12 +120,7 @@ class MobileBackendAPI {
                     alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
                     vc.present(alert, animated: true, completion: nil)
                 } else {
-                    // Do something with downloadTask.
-                    let alert = UIAlertController(title: "PRPCA",
-                                                  message: "\(key) result saved in camera roll!",
-                                                  preferredStyle: UIAlertControllerStyle.alert)
-                    alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
-                    vc.present(alert, animated: true, completion: nil)
+                    
                 }
                 
                 
@@ -139,7 +134,19 @@ class MobileBackendAPI {
 //                    PHPhotoLibrary.shared().performChanges({
 //                        PHAssetCreationRequest.forAsset().addResource(with: .photo, data: downloadedDataToSave, options: nil)
 //                    })
-                    vc.test.image = UIImage.gif(data: Data(data!))
+                    //vc.test.image = UIImage.gif(data: Data(data!))
+                    mc.resultComponents[key] = UIImage.gif(data: Data(data!))
+                    if mc.resultComponents.count == 6 {
+                        // Do something with downloadTask.
+                        let alert = UIAlertController(title: "PRPCA",
+                                                      message: "Downloaded all components",
+                            preferredStyle: UIAlertControllerStyle.alert)
+                        alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+                        vc.present(alert, animated: true, completion: nil)
+                        mc.addNewPRPCAResult(title: "meh", createdDate: "datee", OG: mc.resultComponents["OG.gif"]!, L_RPCA: mc.resultComponents["L_RPCA.gif"]!, S_RPCA: mc.resultComponents["S_RPCA.gif"]!, L: mc.resultComponents["L.gif"]!, S: mc.resultComponents["S.gif"]!, RPCA_Image: mc.resultComponents["RPCA_Image.jpg"]!)
+                        vc.resultsTableView.reloadData()
+                        mc.resultComponents.removeAll()
+                    }
                     print("Download Successful")
                 })
             }
@@ -147,7 +154,7 @@ class MobileBackendAPI {
             //Later change the permission for the s3 buckets.
             let transferUtility = AWSS3TransferUtility.default()
             //This is for getting the notification when the download is complete.
-            transferUtility.downloadData(fromBucket: bucketName, key: key, expression: expression, completionHandler: completionHandler).continueWith { (task) -> Any? in
+            transferUtility.downloadData(fromBucket: bucketName, key: "uploads/\(key)", expression: expression, completionHandler: completionHandler).continueWith { (task) -> Any? in
                 if task.error != nil {
 //                    print("RIPPPP")
 //                    print("Error: \(error.localizedDescription)")

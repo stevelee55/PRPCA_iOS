@@ -153,7 +153,7 @@ class VideoClipsViewController: UIViewController, UIImagePickerControllerDelegat
         //cell.accessoryType = .disclosureIndicator
         let videoClip = videoClipsModel.videoClips[indexPath.row] as VideoClip
         cell.videoTitle.text = videoClip.videoClipMetaData.title
-        cell.recordedDate.text = "Use Converter" //videoClip.videoClipMetaData.dateCreated
+        cell.recordedDate.text = videoClip.videoClipMetaData.dateCreated
         cell.videoLengthTime.text = convertIntToStringHoursMinutesAndSeconds(seconds: videoClip.videoClipMetaData.duration)
         cell.thumbnail.image = videoClip.thumbnail
         return cell

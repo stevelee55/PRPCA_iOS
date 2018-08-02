@@ -11,40 +11,6 @@ import UIKit
 
 class PRPCAResultsModelController: NSObject {
     
-    // PRPCA Result MetaData Struct.
-    public struct PRPCAResultMetaData {
-        init(title:String, createdDate:String) {
-            self.title = title
-            self.createdDate = createdDate
-        }
-        var title:String
-        var createdDate:String
-    }
-    
-    // PRPCA Result Struct.
-    public struct PRPCAResult {
-        // Constructor.
-        init(title:String, createdDate:String, OG:UIImage, L_RPCA:UIImage,
-             S_RPCA:UIImage, L:UIImage, S:UIImage, RPCA_Image:UIImage) {
-            // Title of this PRPCA result.
-            self.metaData = PRPCAResultMetaData(title: title, createdDate: createdDate)
-            // Saving the uiimages in the file system and saving the resulting urls.
-            self.OG_url = writeUIImage(uiimage: OG, title: title, resultType:"OG")
-            self.L_RPCA_url = writeUIImage(uiimage: L_RPCA, title: title, resultType:"L_RPCA")
-            self.S_RPCA_url = writeUIImage(uiimage: S_RPCA, title: title, resultType:"S_RPCA")
-            self.L_url = writeUIImage(uiimage: L, title: title, resultType:"L")
-            self.S_url = writeUIImage(uiimage: S, title: title, resultType:"S")
-            self.RPCA_Image_url = writeUIImage(uiimage: RPCA_Image, title: title, resultType:"RPCA_Image")
-        }
-        var OG_url:URL
-        var L_RPCA_url:URL
-        var S_RPCA_url:URL
-        var L_url:URL
-        var S_url:URL
-        var RPCA_Image_url:URL
-        var metaData:PRPCAResultMetaData
-    }
-    
     public var PRPCAResults:[PRPCAResult]
     private let api:MobileBackendAPI = MobileBackendAPI()
     
@@ -100,29 +66,35 @@ class PRPCAResultsModelController: NSObject {
         loadSavedPRPCAResults()
     }
     
+    var resultComponents:[String: UIImage] = [:]
     public func downloadFromS3(vc:PRPCAResultsViewController){
         let dummyProgBar:UIProgressView = UIProgressView()
-        api.downloadData(progressBar: dummyProgBar, vc: vc, key: "uploads/L.gif")
+        api.downloadData(progressBar: dummyProgBar, vc:vc, mc: self, key: "OG.gif")
+        api.downloadData(progressBar: dummyProgBar, vc:vc, mc: self, key: "L_RPCA.gif")
+        api.downloadData(progressBar: dummyProgBar, vc:vc, mc: self, key: "S_RPCA.gif")
+        api.downloadData(progressBar: dummyProgBar, vc:vc, mc: self, key: "L.gif")
+        api.downloadData(progressBar: dummyProgBar, vc:vc, mc: self, key: "S.gif")
+        api.downloadData(progressBar: dummyProgBar, vc:vc, mc: self, key: "RPCA_Image.jpg")
     }
 }
 
 
-// Helper Functions.
-private func getDocumentsDirectory() -> URL {
-    let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-    return paths[0]
-}
-
-// Returns False when failed to save the uiimage or convert the uiimage to data.
-private func writeUIImage(uiimage:UIImage, title:String, resultType:String) -> URL {
-    let path = getDocumentsDirectory().appendingPathComponent("\(title)_\(resultType)")
-    do {
-        // uiimage can either be .gif or .jpg .
-        let data = NSKeyedArchiver.archivedData(withRootObject: uiimage)
-        try data.write(to: path)
-        return path
-    } catch {
-        print("Error: Data cannot be saved.")
-    }
-    return URL(fileURLWithPath: "n/a")
-}
+//// Helper Functions.
+//private func getDocumentsDirectory() -> URL {
+//    let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+//    return paths[0]
+//}
+//
+//// Returns False when failed to save the uiimage or convert the uiimage to data.
+//private func writeUIImage(uiimage:UIImage, title:String, resultType:String) -> URL {
+//    let path = getDocumentsDirectory().appendingPathComponent("\(title)_\(resultType)")
+//    do {
+//        // uiimage can either be .gif or .jpg .
+//        let data = NSKeyedArchiver.archivedData(withRootObject: uiimage)
+//        try data.write(to: path)
+//        return path
+//    } catch {
+//        print("Error: Data cannot be saved.")
+//    }
+//    return URL(fileURLWithPath: "n/a")
+//}
