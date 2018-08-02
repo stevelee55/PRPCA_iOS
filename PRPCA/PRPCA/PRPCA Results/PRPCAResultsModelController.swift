@@ -13,18 +13,18 @@ class PRPCAResultsModelController: NSObject {
     
     // PRPCA Result MetaData Struct.
     public struct PRPCAResultMetaData {
-        init(title:String, createdDate:NSDate) {
+        init(title:String, createdDate:String) {
             self.title = title
             self.createdDate = createdDate
         }
         var title:String
-        var createdDate:NSDate
+        var createdDate:String
     }
     
     // PRPCA Result Struct.
     public struct PRPCAResult {
         // Constructor.
-        init(title:String, createdDate:NSDate, OG:UIImage, L_RPCA:UIImage,
+        init(title:String, createdDate:String, OG:UIImage, L_RPCA:UIImage,
              S_RPCA:UIImage, L:UIImage, S:UIImage, RPCA_Image:UIImage) {
             // Title of this PRPCA result.
             self.metaData = PRPCAResultMetaData(title: title, createdDate: createdDate)
@@ -86,7 +86,7 @@ class PRPCAResultsModelController: NSObject {
         loadSavedPRPCAResults()
     }
     
-    public func addNewPRPCAResult(title:String, createdDate:NSDate, OG:UIImage,
+    public func addNewPRPCAResult(title:String, createdDate:String, OG:UIImage,
                                   L_RPCA:UIImage, S_RPCA:UIImage, L:UIImage,
                                   S:UIImage, RPCA_Image:UIImage) {
         

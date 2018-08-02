@@ -11,43 +11,12 @@ import UIKit
 
 class VideoClipsModelController: NSObject {
     
-    // Video Clip Metadata Struct.
-    public struct VideoClipMetaData {
-        // Constructor.
-        init(title:String, dateCreated:NSDate, duration:Double) {
-            self.title = title
-            self.dateCreated = dateCreated
-            self.duration = duration
-        }
-        // Member Variables.
-        var title:String
-        var dateCreated:NSDate
-        var duration:Double
-    }
-    
-    // Video Clip Struct.
-    public struct VideoClip {
-        // Constructor.
-        init(title:String, dateCreated:NSDate, duration:Double, videoClipURL:URL,
-             thumbnailURL:URL) {
-            self.videoClipURL = videoClipURL
-            self.thumbnailURL = thumbnailURL
-            self.videoClipMetaData = VideoClipMetaData(title: title,
-                                                       dateCreated: dateCreated,
-                                                       duration: duration)
-        }
-        // Member Variables.
-        var videoClipURL:URL
-        var thumbnailURL:URL
-        var videoClipMetaData:VideoClipMetaData
-    }
-    
     // Array of Video Clips.
     public var videoClips:[VideoClip]
     
     // Constructor.
     override init() {
-        videoClips = [VideoClip]()
+        videoClips = []
         super.init()
         loadSavedVideoClips()
     }
@@ -72,7 +41,7 @@ class VideoClipsModelController: NSObject {
         // the app directory.
         
         // Archieving into a Data type.
-        let data = NSKeyedArchiver.archivedData(withRootObject: videoClips);
+        let data = NSKeyedArchiver.archivedData(withRootObject: videoClips)
         // Storing archieved data at the given key.
         let defaults = UserDefaults()
         defaults.set(data, forKey: "SavedVideoClips")
@@ -86,12 +55,12 @@ class VideoClipsModelController: NSObject {
         loadSavedVideoClips()
     }
     
-    public func addNewVideoClip(title:String, dateCreated:NSDate, duration:Double,
-                                videoURL:URL, thumbnail:UIImage) {
+    public func addNewVideoClip(title:String, dateCreated:String, duration:Double,
+                                videoURL:URL, thumbnail:UIImage, orientation:String) {
         // Save thumbnail in the directory and get the url.
         let thumbnailURL:URL = writeUIImage(uiimage: thumbnail, title: title, type: "thumbnail")
         let clip = VideoClip(title: title, dateCreated: dateCreated,
-                         duration: duration, videoClipURL: videoURL, thumbnailURL: thumbnailURL)
+                             duration: duration, videoClipURL: videoURL, thumbnailURL: thumbnailURL, orientation: orientation)
         videoClips.append(clip)
         // Permanantly saving and updating the data.
         saveCurrentVideoClipsData()

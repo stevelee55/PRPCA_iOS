@@ -38,13 +38,57 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="598"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="tpl-PG-f0W">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="107" id="tpl-PG-f0W" customClass="VideoClipCell" customModule="PRPCA" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="107"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tpl-PG-f0W" id="QAt-8Q-a1G">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="106.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bI1-MR-vbW">
+                                                    <rect key="frame" x="15" y="18" width="126" height="71"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="71" id="CAW-eP-Cqv"/>
+                                                        <constraint firstAttribute="width" constant="126" id="CqY-f4-zY0"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TsO-IT-05t">
+                                                    <rect key="frame" x="149" y="18" width="87.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recorded Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ulU-Pd-BMM">
+                                                    <rect key="frame" x="149" y="43" width="115" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video Length" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dT-1t-0fn">
+                                                    <rect key="frame" x="149" y="68" width="102" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ulU-Pd-BMM" firstAttribute="top" secondItem="TsO-IT-05t" secondAttribute="bottom" constant="4" id="1bj-RJ-1Ab"/>
+                                                <constraint firstAttribute="bottom" secondItem="bI1-MR-vbW" secondAttribute="bottom" constant="17.5" id="2fl-UD-5il"/>
+                                                <constraint firstItem="bI1-MR-vbW" firstAttribute="leading" secondItem="QAt-8Q-a1G" secondAttribute="leading" constant="15" id="8nO-Gd-y5v"/>
+                                                <constraint firstItem="ulU-Pd-BMM" firstAttribute="leading" secondItem="bI1-MR-vbW" secondAttribute="trailing" constant="8" id="F9k-SO-Bop"/>
+                                                <constraint firstItem="bI1-MR-vbW" firstAttribute="top" secondItem="QAt-8Q-a1G" secondAttribute="top" constant="18" id="bbn-bl-RWM"/>
+                                                <constraint firstItem="TsO-IT-05t" firstAttribute="top" secondItem="QAt-8Q-a1G" secondAttribute="top" constant="18" id="cQw-dR-3Vd"/>
+                                                <constraint firstItem="6dT-1t-0fn" firstAttribute="leading" secondItem="bI1-MR-vbW" secondAttribute="trailing" constant="8" id="mL5-VQ-xD3"/>
+                                                <constraint firstItem="TsO-IT-05t" firstAttribute="leading" secondItem="bI1-MR-vbW" secondAttribute="trailing" constant="8" id="sde-Ly-DzQ"/>
+                                                <constraint firstItem="6dT-1t-0fn" firstAttribute="top" secondItem="ulU-Pd-BMM" secondAttribute="bottom" constant="4" id="t9w-Px-W5m"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="recordedDate" destination="ulU-Pd-BMM" id="Cn8-kb-6jm"/>
+                                            <outlet property="thumbnail" destination="bI1-MR-vbW" id="i7e-WD-pD9"/>
+                                            <outlet property="videoLengthTime" destination="6dT-1t-0fn" id="xgB-dW-xxI"/>
+                                            <outlet property="videoTitle" destination="TsO-IT-05t" id="HhB-fa-eB4"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -91,6 +135,9 @@
                         <viewLayoutGuide key="safeArea" id="f62-tO-ixr"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="otS-bO-1pA"/>
+                    <connections>
+                        <outlet property="videoClipsTableView" destination="dCv-Kl-iwN" id="3RZ-5Z-e19"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mwk-4V-uFG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

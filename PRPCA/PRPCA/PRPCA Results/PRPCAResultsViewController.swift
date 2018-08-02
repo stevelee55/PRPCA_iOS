@@ -11,6 +11,8 @@ import UIKit
 
 class PRPCAResultsViewController: UIViewController {
     
+    // Model instance.
+    public var prpcaResultsModel:PRPCAResultsModelController = PRPCAResultsModelController()
     
     
     

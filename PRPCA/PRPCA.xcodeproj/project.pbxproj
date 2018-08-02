@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2D2B00C340A3F83AAE379FB0 /* Pods_PRPCATests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1707444127042EB2054AD3 /* Pods_PRPCATests.framework */; };
 		9DCC7B582111695F000E8C4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCC7B572111695F000E8C4C /* AppDelegate.swift */; };
-		9DCC7B5A2111695F000E8C4C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCC7B592111695F000E8C4C /* ViewController.swift */; };
 		9DCC7B5D2111695F000E8C4C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DCC7B5B2111695F000E8C4C /* Main.storyboard */; };
 		9DCC7B602111695F000E8C4C /* PRPCA.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9DCC7B5E2111695F000E8C4C /* PRPCA.xcdatamodeld */; };
 		9DCC7B6221116961000E8C4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DCC7B6121116961000E8C4C /* Assets.xcassets */; };
@@ -22,6 +21,9 @@
 		9DCC7B8F21116E01000E8C4C /* VideoClipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCC7B8E21116E01000E8C4C /* VideoClipsViewController.swift */; };
 		9DCC7B9221116E21000E8C4C /* PRPCAResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCC7B9121116E21000E8C4C /* PRPCAResultsViewController.swift */; };
 		9DCC7B95211203B0000E8C4C /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCC7B94211203B0000E8C4C /* UIImage+Gif.swift */; };
+		9DCC7B9921125BFD000E8C4C /* VideoClipCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCC7B9821125BFD000E8C4C /* VideoClipCell.swift */; };
+		9DCC7B9B21126E80000E8C4C /* VideoClip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCC7B9A21126E80000E8C4C /* VideoClip.swift */; };
+		9DCC7B9D21126FC3000E8C4C /* VideoClipMetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCC7B9C21126FC3000E8C4C /* VideoClipMetaData.swift */; };
 		BC5A965FBD2BA70D845C05E8 /* Pods_PRPCA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2072E9732CF61E4B2AB03140 /* Pods_PRPCA.framework */; };
 		D1E5A2B069FCB632EF47DBE1 /* Pods_PRPCAUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E586ABD3E7810F0ABF626A5F /* Pods_PRPCAUITests.framework */; };
 /* End PBXBuildFile section */
@@ -49,7 +51,6 @@
 		788DA889A387F49721C8BF73 /* Pods-PRPCATests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PRPCATests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PRPCATests/Pods-PRPCATests.debug.xcconfig"; sourceTree = "<group>"; };
 		9DCC7B542111695F000E8C4C /* PRPCA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PRPCA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DCC7B572111695F000E8C4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9DCC7B592111695F000E8C4C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9DCC7B5C2111695F000E8C4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9DCC7B5F2111695F000E8C4C /* PRPCA.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PRPCA.xcdatamodel; sourceTree = "<group>"; };
 		9DCC7B6121116961000E8C4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -67,6 +68,9 @@
 		9DCC7B8E21116E01000E8C4C /* VideoClipsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoClipsViewController.swift; sourceTree = "<group>"; };
 		9DCC7B9121116E21000E8C4C /* PRPCAResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRPCAResultsViewController.swift; sourceTree = "<group>"; };
 		9DCC7B94211203B0000E8C4C /* UIImage+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
+		9DCC7B9821125BFD000E8C4C /* VideoClipCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoClipCell.swift; sourceTree = "<group>"; };
+		9DCC7B9A21126E80000E8C4C /* VideoClip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoClip.swift; sourceTree = "<group>"; };
+		9DCC7B9C21126FC3000E8C4C /* VideoClipMetaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoClipMetaData.swift; sourceTree = "<group>"; };
 		A6B76A30A37EF3C05FEF04C8 /* Pods-PRPCAUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PRPCAUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PRPCAUITests/Pods-PRPCAUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B85EC25260396B8F6F983E3E /* Pods-PRPCA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PRPCA.release.xcconfig"; path = "Pods/Target Support Files/Pods-PRPCA/Pods-PRPCA.release.xcconfig"; sourceTree = "<group>"; };
 		BA1707444127042EB2054AD3 /* Pods_PRPCATests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PRPCATests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,7 +134,6 @@
 			children = (
 				9DCC7B94211203B0000E8C4C /* UIImage+Gif.swift */,
 				9DCC7B572111695F000E8C4C /* AppDelegate.swift */,
-				9DCC7B592111695F000E8C4C /* ViewController.swift */,
 				9DCC7B9021116E08000E8C4C /* Video Clips */,
 				9DCC7B9321116E49000E8C4C /* PRPCA Results */,
 				9DCC7B5B2111695F000E8C4C /* Main.storyboard */,
@@ -165,7 +168,10 @@
 			isa = PBXGroup;
 			children = (
 				9DCC7B8E21116E01000E8C4C /* VideoClipsViewController.swift */,
+				9DCC7B9821125BFD000E8C4C /* VideoClipCell.swift */,
 				9DCC7B8A21116DCF000E8C4C /* VideoClipsModelController.swift */,
+				9DCC7B9C21126FC3000E8C4C /* VideoClipMetaData.swift */,
+				9DCC7B9A21126E80000E8C4C /* VideoClip.swift */,
 			);
 			path = "Video Clips";
 			sourceTree = "<group>";
@@ -425,12 +431,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DCC7B9D21126FC3000E8C4C /* VideoClipMetaData.swift in Sources */,
 				9DCC7B602111695F000E8C4C /* PRPCA.xcdatamodeld in Sources */,
+				9DCC7B9B21126E80000E8C4C /* VideoClip.swift in Sources */,
 				9DCC7B9221116E21000E8C4C /* PRPCAResultsViewController.swift in Sources */,
 				9DCC7B8D21116DF2000E8C4C /* PRPCAResultsModelController.swift in Sources */,
 				9DCC7B8F21116E01000E8C4C /* VideoClipsViewController.swift in Sources */,
 				9DCC7B8B21116DCF000E8C4C /* VideoClipsModelController.swift in Sources */,
-				9DCC7B5A2111695F000E8C4C /* ViewController.swift in Sources */,
+				9DCC7B9921125BFD000E8C4C /* VideoClipCell.swift in Sources */,
 				9DCC7B95211203B0000E8C4C /* UIImage+Gif.swift in Sources */,
 				9DCC7B582111695F000E8C4C /* AppDelegate.swift in Sources */,
 			);

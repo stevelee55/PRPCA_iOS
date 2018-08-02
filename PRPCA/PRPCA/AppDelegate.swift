@@ -15,9 +15,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Creating and passing over the Models.
+        if let tabBarController = window?.rootViewController as? UITabBarController {
+            // Video Clips Model.
+            let videoClipsVC = tabBarController.viewControllers![0] as! VideoClipsViewController
+            videoClipsVC.videoClipsModel = VideoClipsModelController()
+            // PRPCA Results Model.
+            let prpcaResultsVC = tabBarController.viewControllers![1] as! PRPCAResultsViewController
+            prpcaResultsVC.prpcaResultsModel = PRPCAResultsModelController()
+        }
         
         // Create AWSMobileClient to connect with AWS
         return AWSMobileClient.sharedInstance().interceptApplication(application,didFinishLaunchingWithOptions: launchOptions)
