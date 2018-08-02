@@ -46,6 +46,7 @@ class PRPCAResultsModelController: NSObject {
     }
     
     public var PRPCAResults:[PRPCAResult]
+    private let api:MobileBackendAPI = MobileBackendAPI()
     
     // Constructor.
     override init() {
@@ -97,6 +98,11 @@ class PRPCAResultsModelController: NSObject {
         // Permanantly saving and updating the data.
         saveCurrentPRPCAResultsData()
         loadSavedPRPCAResults()
+    }
+    
+    public func downloadFromS3(vc:PRPCAResultsViewController){
+        let dummyProgBar:UIProgressView = UIProgressView()
+        api.downloadData(progressBar: dummyProgBar, vc: vc, key: "uploads/L.gif")
     }
 }
 

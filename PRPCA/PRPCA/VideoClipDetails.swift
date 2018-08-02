@@ -34,6 +34,9 @@ class VideoClipDetails: UIViewController {
             // Upload failed ui alert for the user.
         }
     }
+    @IBAction func playVideeClipButton(_ sender: Any) {
+        playVideo(videoLocalURL: videoClip.videoClipURL)
+    }
     
     @IBAction func dismissButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -56,13 +59,15 @@ class VideoClipDetails: UIViewController {
         let formattedDuration = String(format: "%02d:%02d:%02d", h, m, s)
         return formattedDuration
     }
+    
+    /* Helper Function */
+    // Video Playback with given URL.
+    func playVideo(videoLocalURL: URL) {
+        let player = AVPlayerViewController()
+        player.player = AVPlayer(url: videoLocalURL as URL)
+        self.present(player, animated: true, completion: nil)
+    }
 }
 
-/* Helper Function */
-// Video Playback with given URL.
-func playVideo(videoLocalURL: URL) {
-    let player = AVPlayerViewController()
-    player.player = AVPlayer(url: videoLocalURL as URL)
-    self.present(player, animated: true, completion: nil)
-}
+
 

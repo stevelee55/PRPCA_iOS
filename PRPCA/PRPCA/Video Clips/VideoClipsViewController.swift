@@ -197,13 +197,6 @@ class VideoClipsViewController: UIViewController, UIImagePickerControllerDelegat
     
     /* Helper Functions */
     
-    // Video Playback with given URL.
-    func playVideo(videoLocalURL: URL) {
-        let player = AVPlayerViewController()
-        player.player = AVPlayer(url: videoLocalURL as URL)
-        self.present(player, animated: true, completion: nil)
-    }
-    
     // Determining if the image is portrait or landscape.
     private func isPortrait(width: Int, height: Int) -> Bool {
         //If the width is greater than height, then it's a landscape.

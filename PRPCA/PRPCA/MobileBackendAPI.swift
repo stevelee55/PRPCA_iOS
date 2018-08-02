@@ -92,7 +92,7 @@ class MobileBackendAPI {
     }
         
         //Downloading data from s3 bucket.
-        func downloadData(progressBar: UIProgressView, vc: UIViewController, key: String) {
+        func downloadData(progressBar: UIProgressView, vc: PRPCAResultsViewController, key: String) {
             let expression = AWSS3TransferUtilityDownloadExpression()
             expression.progressBlock = {(task, progress) in DispatchQueue.main.async(execute: {
                 // Do something e.g. Update a progress bar.
@@ -114,30 +114,32 @@ class MobileBackendAPI {
                     //                    print("Error: \(error.localizedDescription)")
                     
                     // Do something with downloadTask.
-                    let alert = UIAlertController(title: "VSP",
+                    let alert = UIAlertController(title: "PRPCA",
                                                   message: "\(key) not available :(",
                                                   preferredStyle: UIAlertControllerStyle.alert)
                     alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
                     vc.present(alert, animated: true, completion: nil)
                 } else {
                     // Do something with downloadTask.
-                    let alert = UIAlertController(title: "VSP",
+                    let alert = UIAlertController(title: "PRPCA",
                                                   message: "\(key) result saved in camera roll!",
                                                   preferredStyle: UIAlertControllerStyle.alert)
                     alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
                     vc.present(alert, animated: true, completion: nil)
                 }
                 
+                
+                
                 DispatchQueue.main.async(execute: {
                     // Do something e.g. Alert a user for transfer completion.
                     // On failed downloads, `error` contains the error object.
     //                let responseString =  String(data:data!, encoding: .utf8)
     //                recievedDataLabel.text = responseString
-                    let downloadedDataToSave:Data = Data(data!)
-                   // let test = UIImage(data: downloadedDataToSave)
-                    PHPhotoLibrary.shared().performChanges({
-                        PHAssetCreationRequest.forAsset().addResource(with: .photo, data: downloadedDataToSave, options: nil)
-                    })
+                    
+//                    PHPhotoLibrary.shared().performChanges({
+//                        PHAssetCreationRequest.forAsset().addResource(with: .photo, data: downloadedDataToSave, options: nil)
+//                    })
+                    vc.test.image = UIImage.gif(data: Data(data!))
                     print("Download Successful")
                 })
             }
