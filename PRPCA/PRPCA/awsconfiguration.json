@@ -12,6 +12,12 @@
   "IdentityManager": {
     "Default": {}
   },
+  "S3TransferUtility": {
+    "Default": {
+      "Bucket": "prpca-userfiles-mobilehub-71528230",
+      "Region": "us-east-1"
+    }
+  },
   "PinpointAnalytics": {
     "Default": {
       "AppId": "872ce64e8f6a4d16ab0b8f85607c7187",
@@ -20,6 +26,12 @@
   },
   "PinpointTargeting": {
     "Default": {
+      "Region": "us-east-1"
+    }
+  },
+  "UserFileManager": {
+    "Default": {
+      "Bucket": "prpca-userfiles-mobilehub-71528230",
       "Region": "us-east-1"
     }
   }

@@ -28,6 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             prpcaResultsVC.prpcaResultsModel = PRPCAResultsModelController()
         }
         
+        AWSDDLog.add(AWSDDTTYLogger.sharedInstance)
+        AWSDDLog.sharedInstance.logLevel = .info
+        
         // Create AWSMobileClient to connect with AWS
         return AWSMobileClient.sharedInstance().interceptApplication(application,didFinishLaunchingWithOptions: launchOptions)
     }

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2D2B00C340A3F83AAE379FB0 /* Pods_PRPCATests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1707444127042EB2054AD3 /* Pods_PRPCATests.framework */; };
+		9DA57042211349AA005E0B85 /* MobileBackendAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA57041211349A9005E0B85 /* MobileBackendAPI.swift */; };
+		9DB201CA21133356009DC297 /* AWSUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB201C921133355009DC297 /* AWSUploadViewController.swift */; };
+		9DB201CC21133FCF009DC297 /* VideoClipDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB201CB21133FCF009DC297 /* VideoClipDetails.swift */; };
 		9DCC7B582111695F000E8C4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCC7B572111695F000E8C4C /* AppDelegate.swift */; };
 		9DCC7B5D2111695F000E8C4C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DCC7B5B2111695F000E8C4C /* Main.storyboard */; };
 		9DCC7B602111695F000E8C4C /* PRPCA.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9DCC7B5E2111695F000E8C4C /* PRPCA.xcdatamodeld */; };
@@ -49,6 +52,9 @@
 		2072E9732CF61E4B2AB03140 /* Pods_PRPCA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PRPCA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E2C30FC2C496A450B140639 /* Pods-PRPCAUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PRPCAUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PRPCAUITests/Pods-PRPCAUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		788DA889A387F49721C8BF73 /* Pods-PRPCATests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PRPCATests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PRPCATests/Pods-PRPCATests.debug.xcconfig"; sourceTree = "<group>"; };
+		9DA57041211349A9005E0B85 /* MobileBackendAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MobileBackendAPI.swift; path = PRPCA/MobileBackendAPI.swift; sourceTree = SOURCE_ROOT; };
+		9DB201C921133355009DC297 /* AWSUploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWSUploadViewController.swift; sourceTree = "<group>"; };
+		9DB201CB21133FCF009DC297 /* VideoClipDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VideoClipDetails.swift; path = "/Users/stevelee/Desktop/Projects/Dev/Research/Video Stitching_Raj_Umich/PRPCA_iOS/PRPCA_iOS/PRPCA/PRPCA/VideoClipDetails.swift"; sourceTree = "<absolute>"; };
 		9DCC7B542111695F000E8C4C /* PRPCA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PRPCA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DCC7B572111695F000E8C4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DCC7B5C2111695F000E8C4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -107,6 +113,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9DB201CD21133FD2009DC297 /* Video Clip Details */ = {
+			isa = PBXGroup;
+			children = (
+				9DB201CB21133FCF009DC297 /* VideoClipDetails.swift */,
+			);
+			path = "Video Clip Details";
+			sourceTree = "<group>";
+		};
 		9DCC7B4B2111695F000E8C4C = {
 			isa = PBXGroup;
 			children = (
@@ -134,7 +148,9 @@
 			children = (
 				9DCC7B94211203B0000E8C4C /* UIImage+Gif.swift */,
 				9DCC7B572111695F000E8C4C /* AppDelegate.swift */,
+				9DD8430B211332DA0052080D /* AWS Upload */,
 				9DCC7B9021116E08000E8C4C /* Video Clips */,
+				9DB201CD21133FD2009DC297 /* Video Clip Details */,
 				9DCC7B9321116E49000E8C4C /* PRPCA Results */,
 				9DCC7B5B2111695F000E8C4C /* Main.storyboard */,
 				9DCC7B6121116961000E8C4C /* Assets.xcassets */,
@@ -183,6 +199,15 @@
 				9DCC7B8C21116DF2000E8C4C /* PRPCAResultsModelController.swift */,
 			);
 			path = "PRPCA Results";
+			sourceTree = "<group>";
+		};
+		9DD8430B211332DA0052080D /* AWS Upload */ = {
+			isa = PBXGroup;
+			children = (
+				9DB201C921133355009DC297 /* AWSUploadViewController.swift */,
+				9DA57041211349A9005E0B85 /* MobileBackendAPI.swift */,
+			);
+			path = "AWS Upload";
 			sourceTree = "<group>";
 		};
 		C37D8130194D9C4D7F80081B /* Frameworks */ = {
@@ -439,8 +464,11 @@
 				9DCC7B8F21116E01000E8C4C /* VideoClipsViewController.swift in Sources */,
 				9DCC7B8B21116DCF000E8C4C /* VideoClipsModelController.swift in Sources */,
 				9DCC7B9921125BFD000E8C4C /* VideoClipCell.swift in Sources */,
+				9DA57042211349AA005E0B85 /* MobileBackendAPI.swift in Sources */,
 				9DCC7B95211203B0000E8C4C /* UIImage+Gif.swift in Sources */,
 				9DCC7B582111695F000E8C4C /* AppDelegate.swift in Sources */,
+				9DB201CC21133FCF009DC297 /* VideoClipDetails.swift in Sources */,
+				9DB201CA21133356009DC297 /* AWSUploadViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

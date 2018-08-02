@@ -116,10 +116,10 @@ class VideoClipsViewController: UIViewController, UIImagePickerControllerDelegat
         // Creating the alert for the user to enter a unique video title for the
         // video clip.
         let alert = UIAlertController(title: "PRPCA",
-                                      message: "Enter a Unique Video Title",
+                                      message: "Enter Video Title",
                                       preferredStyle: .alert)
         alert.addTextField { (textField:UITextField) in
-            textField.text = "Default"
+            textField.text = "Title"
         }
         alert.addAction(UIAlertAction(title: "Done", style: .default, handler: {[weak alert] (_) in
             // Getting the unique video title from the user and using it to
@@ -133,7 +133,12 @@ class VideoClipsViewController: UIViewController, UIImagePickerControllerDelegat
             // Refreshing the table view to load the data that has just been added.
             self.videoClipsTableView.reloadData()
         }))
-        self.present(alert, animated: true, completion: nil)
+        
+        // Waiting until the image picker view controller is dismissed before
+        // presenting the alert view.
+        dismiss(animated: true, completion: {
+            self.present(alert, animated: true, completion: nil)
+        })
     }
     
     /* UITableView Delegate Functions */
@@ -144,28 +149,49 @@ class VideoClipsViewController: UIViewController, UIImagePickerControllerDelegat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = videoClipsTableView.dequeueReusableCell(withIdentifier: "cell") as! VideoClipCell
+        // This sets the arrow thingy on the right edge of the tableviewcell.
+        //cell.accessoryType = .disclosureIndicator
         let videoClip = videoClipsModel.videoClips[indexPath.row] as VideoClip
         cell.videoTitle.text = videoClip.videoClipMetaData.title
         cell.recordedDate.text = "Use Converter" //videoClip.videoClipMetaData.dateCreated
-        cell.videoLengthTime.text = convertIntToStringHoursMinutesAndSeconds(seconds: videoClip.videoClipMetaData.duration) 
-        do {
-            
-            let retrievedThumbnailData = NSKeyedUnarchiver.unarchiveObject(with: try Data(contentsOf: videoClip.thumbnailURL))
-            cell.thumbnail.image = retrievedThumbnailData as? UIImage
-        } catch {
-            print("Video Clip thumbnail data from the stored thumbnail URL cannot be retreived.")
-        }
+        cell.videoLengthTime.text = convertIntToStringHoursMinutesAndSeconds(seconds: videoClip.videoClipMetaData.duration)
+        cell.thumbnail.image = videoClip.thumbnail
         return cell
     }
     
+    var videoClipToPassIndex:Int = 0
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        //Do something for the specific cell that was clicked.
+        // Do something for the specific cell that was clicked.
         if let index = tableView.indexPathForSelectedRow {
-            playVideo(videoLocalURL: videoClipsModel.videoClips[index.row].videoClipURL)
-            //Deselects the selected cell after it is clicked by the user.
+            // Deselects the selected cell after it is clicked by the user.
             tableView.deselectRow(at: index, animated: true)
-            
+            // Storing the index of the video clip data to pass in the prepare(...).
+            videoClipToPassIndex = indexPath.row
+            // Starting the segue with given identifier.
+            performSegue(withIdentifier: "videoClipDetailsSegue", sender: self)
+        }
+    }
+    
+    // Allows deleting cells by the user.
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.delete {
+            videoClipsModel.deleteVideoClipAt(index: indexPath.row)
+            videoClipsTableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    // Sets the height value to the cell height.
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let cell = videoClipsTableView.dequeueReusableCell(withIdentifier: "cell") as! VideoClipCell
+        return cell.frame.height
+    }
+    
+    /* Segue */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "videoClipDetailsSegue" {
+            let destinationVC:VideoClipDetails = (segue.destination as? VideoClipDetails)!
+            // Passing over the data.
+            destinationVC.videoClip = videoClipsModel.videoClips[videoClipToPassIndex]
         }
     }
     
