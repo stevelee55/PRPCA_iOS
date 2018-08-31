@@ -46,20 +46,21 @@ class PRPCAResultsModelController: NSObject {
         defaults.synchronize()
     }
     
-    public func deleteVideoClipAt(index:Int) {
+    public func deletePRPCAResultAt(index:Int) {
         PRPCAResults.remove(at: index)
         // Permanantly saving and updating the data.
         saveCurrentPRPCAResultsData()
         loadSavedPRPCAResults()
     }
     
+    
     public func addNewPRPCAResult(title:String, createdDate:String, OG:UIImage,
                                   L_RPCA:UIImage, S_RPCA:UIImage, L:UIImage,
-                                  S:UIImage, RPCA_Image:UIImage) {
+                                  S:UIImage, RPCA_Image:UIImage, L_Stylized:UIImage) {
         
         let prpcaResult = PRPCAResult(title: title, createdDate: createdDate,
                                       OG: OG, L_RPCA: L_RPCA, S_RPCA: S_RPCA,
-                                      L: L, S: S, RPCA_Image: RPCA_Image)
+                                      L: L, S: S, RPCA_Image: RPCA_Image, L_Stylized: L_Stylized)
         PRPCAResults.append(prpcaResult)
         // Permanantly saving and updating the data.
         saveCurrentPRPCAResultsData()
@@ -75,6 +76,7 @@ class PRPCAResultsModelController: NSObject {
         api.downloadData(progressBar: dummyProgBar, vc:vc, mc: self, key: "L.gif")
         api.downloadData(progressBar: dummyProgBar, vc:vc, mc: self, key: "S.gif")
         api.downloadData(progressBar: dummyProgBar, vc:vc, mc: self, key: "RPCA_Image.jpg")
+        api.downloadData(progressBar: dummyProgBar, vc:vc, mc: self, key: "L_Stylized.gif")
     }
 }
 

@@ -15,15 +15,22 @@ class PRPCAResultsViewController: UIViewController, UITableViewDelegate, UITable
     public var prpcaResultsModel:PRPCAResultsModelController = PRPCAResultsModelController()
     
     @IBOutlet weak var resultsTableView: UITableView!
+    @IBOutlet weak var loadingView: UIView!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         resultsTableView.delegate = self
         resultsTableView.dataSource = self
+        loadingIndicator.isHidden = true
     }
     
     // Used to check if there is any results present in the S3 bucket.
     @IBAction func reloadButton(_ sender: UIButton) {
         prpcaResultsModel.downloadFromS3(vc: self)
+        self.view.isUserInteractionEnabled = false
+        loadingView.isHidden = false
+        loadingIndicator.isHidden = false
+        loadingIndicator.startAnimating()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -40,7 +47,7 @@ class PRPCAResultsViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:ResultsCell = resultsTableView.dequeueReusableCell(withIdentifier: "resultsCell") as! ResultsCell
-        cell.ogVideoClipGif.image = prpcaResultsModel.PRPCAResults[indexPath.row].L_gif
+        cell.ogVideoClipGif.image = UIImage(data: UIImageJPEGRepresentation(prpcaResultsModel.PRPCAResults[indexPath.row].OG_gif, 1.0)!) 
         cell.resultsTitle.text = prpcaResultsModel.PRPCAResults[indexPath.row].metaData.title
         return cell
     }
@@ -54,7 +61,7 @@ class PRPCAResultsViewController: UIViewController, UITableViewDelegate, UITable
     // Allows deleting cells by the user.
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCellEditingStyle.delete {
-            prpcaResultsModel.deleteVideoClipAt(index: indexPath.row)
+            prpcaResultsModel.deletePRPCAResultAt(index: indexPath.row)
             resultsTableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }

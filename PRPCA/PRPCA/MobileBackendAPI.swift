@@ -136,16 +136,22 @@ class MobileBackendAPI {
 //                    })
                     //vc.test.image = UIImage.gif(data: Data(data!))
                     mc.resultComponents[key] = UIImage.gif(data: Data(data!))
-                    if mc.resultComponents.count == 6 {
+                    if mc.resultComponents.count == 7 {
                         // Do something with downloadTask.
                         let alert = UIAlertController(title: "PRPCA",
                                                       message: "Downloaded all components",
                             preferredStyle: UIAlertControllerStyle.alert)
                         alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
                         vc.present(alert, animated: true, completion: nil)
-                        mc.addNewPRPCAResult(title: "meh", createdDate: "datee", OG: mc.resultComponents["OG.gif"]!, L_RPCA: mc.resultComponents["L_RPCA.gif"]!, S_RPCA: mc.resultComponents["S_RPCA.gif"]!, L: mc.resultComponents["L.gif"]!, S: mc.resultComponents["S.gif"]!, RPCA_Image: mc.resultComponents["RPCA_Image.jpg"]!)
+                        mc.addNewPRPCAResult(title: "meh", createdDate: "datee", OG: mc.resultComponents["OG.gif"]!, L_RPCA: mc.resultComponents["L_RPCA.gif"]!, S_RPCA: mc.resultComponents["S_RPCA.gif"]!, L: mc.resultComponents["L.gif"]!, S: mc.resultComponents["S.gif"]!, RPCA_Image: mc.resultComponents["RPCA_Image.jpg"]!, L_Stylized: mc.resultComponents["L_Stylized.gif"]!)
                         vc.resultsTableView.reloadData()
                         mc.resultComponents.removeAll()
+                        // Allowing the user to interact with the view controller
+                        // again and get rid of the spinning circle.
+                        vc.view.isUserInteractionEnabled = true
+                        vc.loadingView.isHidden = true
+                        vc.loadingIndicator.isHidden = true
+                        vc.loadingIndicator.stopAnimating()
                     }
                     print("Download Successful")
                 })
